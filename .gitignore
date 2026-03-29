@@ -1,0 +1,18 @@
+venv/
+__pycache__/
+*.py[cod]
+
+# Local runtime data
+cloud.db
+cloud_data/
+backup_copy/
+
+# Local encrypted/test artifacts
+*.enc
+contacts.json
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
