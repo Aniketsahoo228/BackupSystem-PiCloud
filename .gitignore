@@ -16,3 +16,22 @@ contacts.json
 Thumbs.db
 .vscode/
 .idea/
+
+# Frontend build artifacts
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+
+# Environment and secrets (KEEP SECRET!)
+.env
+.env.local
+.env.*.local
+*.env
+*password*
+*secret*
+*credentials*
+.credentials/
+secrets/
+
