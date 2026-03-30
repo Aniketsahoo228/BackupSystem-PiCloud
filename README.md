@@ -6,6 +6,8 @@ A lightweight private cloud backup system built with Python and FastAPI for secu
 
 `BackupSystem-PiCloud` is designed as a private backup service where client devices upload files to a local server. Uploaded data is compressed, encrypted using a PIN-derived workflow, stored on disk, and indexed in SQLite for listing and recovery.
 
+The system now includes a modern React-based web dashboard for easy file management, uploads, and recovery operations.
+
 This project is useful as a student/demo system for:
 
 - private cloud backup concepts
@@ -13,6 +15,7 @@ This project is useful as a student/demo system for:
 - secure file transfer experiments
 - backup and restore workflow demonstrations
 - measuring local backup performance against cloud-style endpoints
+- building full-stack web applications with FastAPI and React
 
 ## Features
 
@@ -26,6 +29,8 @@ This project is useful as a student/demo system for:
 - recovery endpoint for backup copies
 - sync endpoint for device data retrieval
 - benchmark and performance test scripts
+- React-based web dashboard for file management
+- Modern UI with upload forms, file listings, and recovery pages
 
 ## Tech Stack
 
@@ -35,6 +40,9 @@ This project is useful as a student/demo system for:
 - SQLite
 - Cryptography
 - Requests
+- React
+- Vite
+- React Router
 
 ## Project Structure
 
@@ -49,11 +57,33 @@ BackupSystem-PiCloud/
 |-- test_client.py         # Sample client upload simulator
 |-- performance_test.py    # Throughput and response-time test
 |-- benchmark.py           # Local vs external endpoint timing comparison
+|-- stress_test.py         # Stress testing script
 |-- plot_graphs.py         # Graph generation for benchmark output
 |-- requirements.txt       # Python dependencies
 |-- run.sh                 # Simple startup script
 |-- graph_latency.png      # Generated latency graph
 |-- graph_throughput.png   # Generated throughput graph
+|-- frontend/              # React-based web dashboard
+|   |-- index.html
+|   |-- package.json
+|   |-- vite.config.js
+|   |-- src/
+|       |-- App.jsx
+|       |-- main.jsx
+|       |-- components/
+|       |   |-- FileList.jsx
+|       |   |-- StatusCard.jsx
+|       |   |-- UploadForm.jsx
+|       |-- pages/
+|       |   |-- DashboardPage.jsx
+|       |   |-- HomePage.jsx
+|       |   |-- RecoveryPage.jsx
+|       |-- services/
+|       |   |-- api.js
+|       |-- styles/
+|           |-- index.css
+|-- cloud_data/            # Encrypted file storage directory
+|-- backup_copy/           # Backup copies for fault tolerance
 ```
 
 ## How It Works
@@ -122,7 +152,9 @@ git clone https://github.com/Aniketsahoo228/BackupSystem-PiCloud.git
 cd BackupSystem-PiCloud
 ```
 
-### 2. Create a virtual environment
+### 2. Backend Setup
+
+Create a virtual environment:
 
 Windows PowerShell:
 
@@ -138,13 +170,23 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-### 3. Install dependencies
+Install Python dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Run The Server
+### 3. Frontend Setup
+
+```bash
+cd frontend
+npm install
+cd ..
+```
+
+## Run The Application
+
+### Backend Server
 
 Using Uvicorn directly:
 
@@ -158,17 +200,18 @@ Or with the helper script on Linux/macOS:
 bash run.sh
 ```
 
-Server URL:
+### Frontend Dashboard
 
-```text
-http://127.0.0.1:8000
+```bash
+cd frontend
+npm run dev
 ```
 
-Interactive API docs:
+The application will be available at:
 
-```text
-http://127.0.0.1:8000/docs
-```
+- Backend API: `http://127.0.0.1:8000`
+- Frontend Web App: `http://127.0.0.1:5173`
+- Interactive API docs: `http://127.0.0.1:8000/docs`
 
 ## Example Request
 
@@ -190,14 +233,11 @@ Before running the client or benchmark scripts, update the hardcoded server IP a
 
 ## Current Notes
 
-- This repository currently represents the backend/API side of the project.
-- A dedicated frontend website is not included yet.
 - Device authentication is currently based on static credentials defined in `server.py`.
 - Some scripts are demo-oriented and may need cleanup before production use.
 
 ## Future Improvements
 
-- build a web dashboard for uploads and restore operations
 - replace hardcoded device credentials with proper user management
 - improve file path safety and delete authorization
 - add automated tests
