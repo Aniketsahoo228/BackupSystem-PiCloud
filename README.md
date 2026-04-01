@@ -21,19 +21,19 @@ This project is useful as a student/demo system for:
 
 ### Home Page (Overview)
 
-![Home Page](frontend/assets/Screenshot 2026-04-01 115712.png)
+![Home Page](assets/Screenshot 2026-04-01 115712.png)
 
 This is the landing page of the PiCloud backup system. It provides an introduction to the private cloud backup concept, highlighting key features such as secure file storage, encryption, and recovery. The page displays system statistics including uptime, synced data, and connected devices. It also lists frontend features like the dashboard and recovery pages, and backend features like authentication and file processing.
 
 ### Dashboard Page
 
-![Dashboard Page](frontend/assets/Screenshot 2026-04-01 115744.png)
+![Dashboard Page](assets/Screenshot 2026-04-01 115744.png)
 
 The dashboard is the main interface for file management. Users can upload files by entering their device ID and PIN, then selecting or dragging files to upload. The page shows a list of backed-up files with details like file name, size, and upload time. Status cards display current system metrics.
 
 ### Recovery Page
 
-![Recovery Page](frontend/assets/Screenshot 2026-04-01 115802.png)
+![Recovery Page](assets/Screenshot 2026-04-01 115802.png)
 
 The recovery page allows users to view and download backup copies. It lists recovered files with their types (ZIP, GZ, VCF, JSON, DB) and provides download options. This page is essential for restoring data from backup archives.
 
@@ -83,6 +83,7 @@ BackupSystem-PiCloud/
 |-- run.sh                 # Simple startup script
 |-- graph_latency.png      # Generated latency graph
 |-- graph_throughput.png   # Generated throughput graph
+|-- assets/                # Screenshots for README
 |-- frontend/              # React-based web dashboard
 |   |-- index.html
 |   |-- package.json
